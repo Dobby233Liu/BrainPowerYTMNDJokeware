@@ -16,10 +16,11 @@ Loop
 
 set ws=createobject("wscript.shell") 
 
-do
 Player.url = "233.wav"
-ws.run "100cpu.bat",0,false
+do
 do until Player.playState = 1 
-ws.run "swallow",1,true
+ws.run "swallow"
+wscript.sleep 360
 loop
+Player.controls.play
 loop
